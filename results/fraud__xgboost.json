@@ -1,0 +1,221 @@
+{
+  "dataset": "fraud",
+  "model": "xgboost",
+  "data_source": "real",
+  "provenance": "ULB Machine Learning Group: Credit Card Fraud Detection (OpenML 1597)",
+  "task": "binary",
+  "target_names": [
+    "normal",
+    "fraud"
+  ],
+  "positive_class": "fraud",
+  "imbalance_strategy": "class_weight",
+  "seed": 42,
+  "n_features_raw": 30,
+  "n_features_model": 30,
+  "n_train_rows": 170883,
+  "n_val_rows": 56962,
+  "n_test_rows": 56962,
+  "threshold": 0.00434848899487406,
+  "params": {
+    "n_estimators": 1000,
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "min_child_weight": 1.0,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0
+  },
+  "metrics": {
+    "macro_f1": 0.6215703991594291,
+    "g_mean": 0.9485160901969881,
+    "pr_auc": 0.9410031223214912,
+    "accuracy": 0.9905199957866648,
+    "n_samples": 56962,
+    "n_classes": 2,
+    "per_class_recall": {
+      "normal": 0.990661930219471,
+      "fraud": 0.9081632653061225
+    },
+    "per_class_f1": {
+      "normal": 0.995229934809109,
+      "fraud": 0.2479108635097493
+    },
+    "per_class_support": {
+      "normal": 56864,
+      "fraud": 98
+    },
+    "pr_auc_per_class": {
+      "0": 0.9999594836484647,
+      "1": 0.8820467609945177
+    },
+    "confusion_matrix": [
+      [
+        56333,
+        531
+      ],
+      [
+        9,
+        89
+      ]
+    ],
+    "threshold": 0.00434848899487406,
+    "ci": {
+      "macro_f1": [
+        0.6125735574158807,
+        0.6322535283400788
+      ],
+      "g_mean": [
+        0.9210975677343227,
+        0.9745651420144449
+      ],
+      "pr_auc": [
+        0.9105516585752305,
+        0.966152235209752
+      ]
+    }
+  },
+  "validation_metrics": {
+    "macro_f1": 0.6263559111253301,
+    "g_mean": 0.9280586613161017,
+    "pr_auc": 0.9076706773898575,
+    "accuracy": 0.99127488501106,
+    "n_samples": 56962,
+    "n_classes": 2,
+    "per_class_recall": {
+      "normal": 0.9914883140179027,
+      "fraud": 0.8686868686868687
+    },
+    "per_class_f1": {
+      "normal": 0.995611672773829,
+      "fraud": 0.2571001494768311
+    },
+    "per_class_support": {
+      "normal": 56863,
+      "fraud": 99
+    },
+    "pr_auc_per_class": {
+      "0": 0.9999447595146317,
+      "1": 0.8153965952650833
+    },
+    "confusion_matrix": [
+      [
+        56379,
+        484
+      ],
+      [
+        13,
+        86
+      ]
+    ],
+    "threshold": 0.00434848899487406,
+    "ci": {}
+  },
+  "top_features": [
+    {
+      "feature": "V14",
+      "importance": 0.40882551670074463,
+      "importance_share": 0.4088254959499561
+    },
+    {
+      "feature": "V10",
+      "importance": 0.19472020864486694,
+      "importance_share": 0.19472019876143817
+    },
+    {
+      "feature": "V4",
+      "importance": 0.06077868491411209,
+      "importance_share": 0.060778681829163655
+    },
+    {
+      "feature": "Amount",
+      "importance": 0.0316178984940052,
+      "importance_share": 0.03161789688917307
+    },
+    {
+      "feature": "V12",
+      "importance": 0.02915588766336441,
+      "importance_share": 0.029155886183496755
+    },
+    {
+      "feature": "V20",
+      "importance": 0.022387001663446426,
+      "importance_share": 0.022387000527147642
+    },
+    {
+      "feature": "V13",
+      "importance": 0.020322706550359726,
+      "importance_share": 0.02032270551883853
+    },
+    {
+      "feature": "V19",
+      "importance": 0.015847675502300262,
+      "importance_share": 0.015847674697918566
+    },
+    {
+      "feature": "V8",
+      "importance": 0.01566537469625473,
+      "importance_share": 0.01566537390112609
+    },
+    {
+      "feature": "V17",
+      "importance": 0.01422722078859806,
+      "importance_share": 0.01422722006646591
+    },
+    {
+      "feature": "V11",
+      "importance": 0.014091492630541325,
+      "importance_share": 0.014091491915298338
+    },
+    {
+      "feature": "V1",
+      "importance": 0.014090944081544876,
+      "importance_share": 0.014090943366329732
+    },
+    {
+      "feature": "V3",
+      "importance": 0.013258530758321285,
+      "importance_share": 0.013258530085357009
+    },
+    {
+      "feature": "V7",
+      "importance": 0.013250399380922318,
+      "importance_share": 0.013250398708370767
+    },
+    {
+      "feature": "V18",
+      "importance": 0.01322170626372099,
+      "importance_share": 0.013221705592625817
+    },
+    {
+      "feature": "V5",
+      "importance": 0.012338047847151756,
+      "importance_share": 0.012338047220908503
+    },
+    {
+      "feature": "V21",
+      "importance": 0.012113680131733418,
+      "importance_share": 0.012113679516878414
+    },
+    {
+      "feature": "V26",
+      "importance": 0.010993759147822857,
+      "importance_share": 0.01099375858981177
+    },
+    {
+      "feature": "V15",
+      "importance": 0.009397505782544613,
+      "importance_share": 0.009397505305554681
+    },
+    {
+      "feature": "V22",
+      "importance": 0.009064784273505211,
+      "importance_share": 0.009064783813403251
+    }
+  ],
+  "timings_seconds": {
+    "fit": 4.104,
+    "total": 16.462
+  },
+  "run_at": "2026-11-25T12:39:52+00:00"
+}

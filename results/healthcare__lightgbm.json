@@ -1,0 +1,245 @@
+{
+  "dataset": "healthcare",
+  "model": "lightgbm",
+  "data_source": "real",
+  "provenance": "UCI ML Repository 296: Diabetes 130-US hospitals for years 1999-2008",
+  "task": "multiclass",
+  "target_names": [
+    "NO",
+    ">30",
+    "<30"
+  ],
+  "positive_class": null,
+  "imbalance_strategy": "class_weight",
+  "seed": 42,
+  "n_features_raw": 47,
+  "n_features_model": 92,
+  "n_train_rows": 61059,
+  "n_val_rows": 20353,
+  "n_test_rows": 20354,
+  "threshold": null,
+  "params": {
+    "n_estimators": 1000,
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "min_child_samples": 20,
+    "subsample": 0.9,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0
+  },
+  "metrics": {
+    "macro_f1": 0.4426221324812407,
+    "g_mean": 0.4167097647719873,
+    "pr_auc": 0.45623378806160036,
+    "accuracy": 0.526677802888867,
+    "n_samples": 20354,
+    "n_classes": 3,
+    "per_class_recall": {
+      "NO": 0.6155107992344846,
+      ">30": 0.47953298635532426,
+      "<30": 0.24515845070422534
+    },
+    "per_class_f1": {
+      "NO": 0.643360640121928,
+      ">30": 0.46823707162969574,
+      "<30": 0.21626868569209862
+    },
+    "per_class_support": {
+      "NO": 10973,
+      ">30": 7109,
+      "<30": 2272
+    },
+    "pr_auc_per_class": {
+      "0": 0.7188209196764308,
+      "1": 0.4576317385682688,
+      "2": 0.19224870594010168
+    },
+    "confusion_matrix": [
+      [
+        6754,
+        3092,
+        1127
+      ],
+      [
+        2505,
+        3409,
+        1195
+      ],
+      [
+        764,
+        951,
+        557
+      ]
+    ],
+    "threshold": null,
+    "ci": {
+      "macro_f1": [
+        0.4351561758085696,
+        0.44907641199806453
+      ],
+      "g_mean": [
+        0.4054348502618291,
+        0.42638397917435955
+      ],
+      "pr_auc": [
+        0.45086449346291035,
+        0.46394245837570597
+      ]
+    }
+  },
+  "validation_metrics": {
+    "macro_f1": 0.45653877991915376,
+    "g_mean": 0.43583453910920206,
+    "pr_auc": 0.4634971781398443,
+    "accuracy": 0.5369724364958482,
+    "n_samples": 20353,
+    "n_classes": 3,
+    "per_class_recall": {
+      "NO": 0.6192472432333911,
+      ">30": 0.495287663525109,
+      "<30": 0.26992514310876264
+    },
+    "per_class_f1": {
+      "NO": 0.6483160003816429,
+      ">30": 0.4808138740953161,
+      "<30": 0.24048646528050216
+    },
+    "per_class_support": {
+      "NO": 10973,
+      ">30": 7109,
+      "<30": 2271
+    },
+    "pr_auc_per_class": {
+      "0": 0.7236333591490369,
+      "1": 0.4651682879479394,
+      "2": 0.20168988732255688
+    },
+    "confusion_matrix": [
+      [
+        6795,
+        3094,
+        1084
+      ],
+      [
+        2458,
+        3521,
+        1130
+      ],
+      [
+        736,
+        922,
+        613
+      ]
+    ],
+    "threshold": null,
+    "ci": {}
+  },
+  "top_features": [
+    {
+      "feature": "num_lab_procedures",
+      "importance": 32759.0,
+      "importance_share": 0.1761236559139785
+    },
+    {
+      "feature": "num_medications",
+      "importance": 26520.0,
+      "importance_share": 0.14258064516129032
+    },
+    {
+      "feature": "time_in_hospital",
+      "importance": 16114.0,
+      "importance_share": 0.08663440860215053
+    },
+    {
+      "feature": "number_diagnoses",
+      "importance": 11130.0,
+      "importance_share": 0.059838709677419354
+    },
+    {
+      "feature": "discharge_disposition_id",
+      "importance": 10745.0,
+      "importance_share": 0.057768817204301076
+    },
+    {
+      "feature": "num_procedures",
+      "importance": 10333.0,
+      "importance_share": 0.055553763440860215
+    },
+    {
+      "feature": "number_inpatient",
+      "importance": 8052.0,
+      "importance_share": 0.04329032258064516
+    },
+    {
+      "feature": "admission_type_id",
+      "importance": 6739.0,
+      "importance_share": 0.036231182795698924
+    },
+    {
+      "feature": "admission_source_id",
+      "importance": 5875.0,
+      "importance_share": 0.031586021505376344
+    },
+    {
+      "feature": "number_outpatient",
+      "importance": 4736.0,
+      "importance_share": 0.025462365591397848
+    },
+    {
+      "feature": "gender_Female",
+      "importance": 3435.0,
+      "importance_share": 0.01846774193548387
+    },
+    {
+      "feature": "number_emergency",
+      "importance": 3263.0,
+      "importance_share": 0.017543010752688173
+    },
+    {
+      "feature": "age_[70-80)",
+      "importance": 2335.0,
+      "importance_share": 0.012553763440860215
+    },
+    {
+      "feature": "insulin_No",
+      "importance": 2230.0,
+      "importance_share": 0.011989247311827957
+    },
+    {
+      "feature": "insulin_Steady",
+      "importance": 2147.0,
+      "importance_share": 0.011543010752688172
+    },
+    {
+      "feature": "payer_code_MC",
+      "importance": 2139.0,
+      "importance_share": 0.0115
+    },
+    {
+      "feature": "change_Ch",
+      "importance": 2130.0,
+      "importance_share": 0.011451612903225807
+    },
+    {
+      "feature": "age_[60-70)",
+      "importance": 2080.0,
+      "importance_share": 0.011182795698924731
+    },
+    {
+      "feature": "race_Caucasian",
+      "importance": 1907.0,
+      "importance_share": 0.010252688172043011
+    },
+    {
+      "feature": "age_[50-60)",
+      "importance": 1846.0,
+      "importance_share": 0.0099247311827957
+    }
+  ],
+  "timings_seconds": {
+    "fit": 7.822,
+    "total": 13.389
+  },
+  "run_at": "2026-11-25T12:39:04+00:00"
+}

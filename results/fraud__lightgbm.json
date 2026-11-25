@@ -1,0 +1,222 @@
+{
+  "dataset": "fraud",
+  "model": "lightgbm",
+  "data_source": "real",
+  "provenance": "ULB Machine Learning Group: Credit Card Fraud Detection (OpenML 1597)",
+  "task": "binary",
+  "target_names": [
+    "normal",
+    "fraud"
+  ],
+  "positive_class": "fraud",
+  "imbalance_strategy": "class_weight",
+  "seed": 42,
+  "n_features_raw": 30,
+  "n_features_model": 30,
+  "n_train_rows": 170883,
+  "n_val_rows": 56962,
+  "n_test_rows": 56962,
+  "threshold": 0.0015166795697397779,
+  "params": {
+    "n_estimators": 1000,
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "min_child_samples": 20,
+    "subsample": 0.9,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0
+  },
+  "metrics": {
+    "macro_f1": 0.617620839588803,
+    "g_mean": 0.9483224372998389,
+    "pr_auc": 0.9389651045158312,
+    "accuracy": 0.9901162178294302,
+    "n_samples": 56962,
+    "n_classes": 2,
+    "per_class_recall": {
+      "normal": 0.9902574563871693,
+      "fraud": 0.9081632653061225
+    },
+    "per_class_f1": {
+      "normal": 0.9950257547511552,
+      "fraud": 0.24021592442645073
+    },
+    "per_class_support": {
+      "normal": 56864,
+      "fraud": 98
+    },
+    "pr_auc_per_class": {
+      "0": 0.9999271188343773,
+      "1": 0.8780030901972851
+    },
+    "confusion_matrix": [
+      [
+        56310,
+        554
+      ],
+      [
+        9,
+        89
+      ]
+    ],
+    "threshold": 0.0015166795697397779,
+    "ci": {
+      "macro_f1": [
+        0.6096894711513718,
+        0.628085562355267
+      ],
+      "g_mean": [
+        0.9209014313329849,
+        0.9744009160002505
+      ],
+      "pr_auc": [
+        0.9091206925917313,
+        0.9645671658785696
+      ]
+    }
+  },
+  "validation_metrics": {
+    "macro_f1": 0.6263559111253301,
+    "g_mean": 0.9280586613161017,
+    "pr_auc": 0.9131941060728519,
+    "accuracy": 0.99127488501106,
+    "n_samples": 56962,
+    "n_classes": 2,
+    "per_class_recall": {
+      "normal": 0.9914883140179027,
+      "fraud": 0.8686868686868687
+    },
+    "per_class_f1": {
+      "normal": 0.995611672773829,
+      "fraud": 0.2571001494768311
+    },
+    "per_class_support": {
+      "normal": 56863,
+      "fraud": 99
+    },
+    "pr_auc_per_class": {
+      "0": 0.9999577981204163,
+      "1": 0.8264304140252875
+    },
+    "confusion_matrix": [
+      [
+        56379,
+        484
+      ],
+      [
+        13,
+        86
+      ]
+    ],
+    "threshold": 0.0015166795697397779,
+    "ci": {}
+  },
+  "top_features": [
+    {
+      "feature": "V4",
+      "importance": 690.0,
+      "importance_share": 0.059166523752358084
+    },
+    {
+      "feature": "V12",
+      "importance": 576.0,
+      "importance_share": 0.04939118504544675
+    },
+    {
+      "feature": "V11",
+      "importance": 556.0,
+      "importance_share": 0.04767621334247985
+    },
+    {
+      "feature": "V13",
+      "importance": 554.0,
+      "importance_share": 0.04750471617218316
+    },
+    {
+      "feature": "V14",
+      "importance": 525.0,
+      "importance_share": 0.045018007202881155
+    },
+    {
+      "feature": "Time",
+      "importance": 496.0,
+      "importance_share": 0.042531298233579144
+    },
+    {
+      "feature": "V26",
+      "importance": 492.0,
+      "importance_share": 0.042188303892985765
+    },
+    {
+      "feature": "V24",
+      "importance": 420.0,
+      "importance_share": 0.03601440576230492
+    },
+    {
+      "feature": "V21",
+      "importance": 406.0,
+      "importance_share": 0.03481392557022809
+    },
+    {
+      "feature": "V8",
+      "importance": 405.0,
+      "importance_share": 0.034728176985079746
+    },
+    {
+      "feature": "Amount",
+      "importance": 402.0,
+      "importance_share": 0.03447093122963471
+    },
+    {
+      "feature": "V7",
+      "importance": 396.0,
+      "importance_share": 0.03395643971874464
+    },
+    {
+      "feature": "V10",
+      "importance": 386.0,
+      "importance_share": 0.03309895386726119
+    },
+    {
+      "feature": "V1",
+      "importance": 383.0,
+      "importance_share": 0.03284170811181616
+    },
+    {
+      "feature": "V3",
+      "importance": 353.0,
+      "importance_share": 0.030269250557365804
+    },
+    {
+      "feature": "V28",
+      "importance": 341.0,
+      "importance_share": 0.029240267535585663
+    },
+    {
+      "feature": "V15",
+      "importance": 337.0,
+      "importance_share": 0.028897273194992284
+    },
+    {
+      "feature": "V16",
+      "importance": 334.0,
+      "importance_share": 0.028640027439547248
+    },
+    {
+      "feature": "V18",
+      "importance": 333.0,
+      "importance_share": 0.0285542788543989
+    },
+    {
+      "feature": "V5",
+      "importance": 329.0,
+      "importance_share": 0.028211284513805522
+    }
+  ],
+  "timings_seconds": {
+    "fit": 1.699,
+    "total": 14.48
+  },
+  "run_at": "2026-11-25T12:39:35+00:00"
+}

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv_install.log
+
+# Data & generated artefacts (re-downloadable / reproducible)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+logs/
+
+# Archives
+*.zip
+
+# Office lock files
+.~lock.*
+.tmp_docx/
+.freebuff/
