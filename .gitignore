@@ -10,6 +10,13 @@ data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+# Keep the per-dataset directories visible so the file rules below can apply.
+!data/processed/*/
+# Everything inside them is regenerable...
+data/processed/*/*
+# ...except the frozen interface contract (~10 KB in total), which downstream
+# components need without re-downloading the raw data.
+!data/processed/*/schema.json
 logs/
 
 # Archives

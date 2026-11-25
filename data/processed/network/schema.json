@@ -1,0 +1,164 @@
+{
+  "dataset": "network",
+  "source": "real",
+  "provenance": "NSL-KDD (KDDTrain+ and KDDTest+, pooled) -- attack-type taxonomy",
+  "task": "multiclass",
+  "target_names": [
+    "Normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "labels": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "positive_class": null,
+  "class_counts": {
+    "Normal": 77054,
+    "DoS": 53387,
+    "Probe": 14077,
+    "R2L": 3880,
+    "U2R": 119
+  },
+  "imbalance_ratio": 647.5126,
+  "split_ratios": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  },
+  "seed": 42,
+  "splits": {
+    "train": {
+      "n_rows": 89109,
+      "class_counts": {
+        "Normal": 46232,
+        "DoS": 32032,
+        "Probe": 8446,
+        "R2L": 2328,
+        "U2R": 71
+      },
+      "class_fractions": {
+        "Normal": 0.518825,
+        "DoS": 0.35947,
+        "Probe": 0.094783,
+        "R2L": 0.026125,
+        "U2R": 0.000797
+      }
+    },
+    "val": {
+      "n_rows": 29704,
+      "class_counts": {
+        "Normal": 15411,
+        "DoS": 10677,
+        "Probe": 2816,
+        "R2L": 776,
+        "U2R": 24
+      },
+      "class_fractions": {
+        "Normal": 0.518819,
+        "DoS": 0.359447,
+        "Probe": 0.094802,
+        "R2L": 0.026124,
+        "U2R": 0.000808
+      }
+    },
+    "test": {
+      "n_rows": 29704,
+      "class_counts": {
+        "Normal": 15411,
+        "DoS": 10678,
+        "Probe": 2815,
+        "R2L": 776,
+        "U2R": 24
+      },
+      "class_fractions": {
+        "Normal": 0.518819,
+        "DoS": 0.35948,
+        "Probe": 0.094768,
+        "R2L": 0.026124,
+        "U2R": 0.000808
+      }
+    }
+  },
+  "n_features_raw": 41,
+  "n_features_model": 59,
+  "feature_names": [
+    "duration",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate",
+    "protocol_type_icmp",
+    "protocol_type_tcp",
+    "protocol_type_udp",
+    "service_domain_u",
+    "service_eco_i",
+    "service_ecr_i",
+    "service_finger",
+    "service_ftp",
+    "service_ftp_data",
+    "service_http",
+    "service_other",
+    "service_private",
+    "service_smtp",
+    "service_telnet",
+    "service_infrequent_sklearn",
+    "flag_REJ",
+    "flag_RSTO",
+    "flag_RSTR",
+    "flag_S0",
+    "flag_SF",
+    "flag_infrequent_sklearn"
+  ],
+  "id_columns": [],
+  "dropped_columns": {},
+  "preprocessing": {
+    "max_missing_fraction": 0.45,
+    "max_cardinality": 100,
+    "min_frequency": 0.01,
+    "scale": true,
+    "add_missing_indicators": true
+  },
+  "row_id_column": "row_id",
+  "target_column": "__target__",
+  "created_at": "2026-11-25T12:38:48+00:00",
+  "prepare_seconds": 1.927
+}

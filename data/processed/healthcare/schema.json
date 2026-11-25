@@ -1,0 +1,190 @@
+{
+  "dataset": "healthcare",
+  "source": "real",
+  "provenance": "UCI ML Repository 296: Diabetes 130-US hospitals for years 1999-2008",
+  "task": "multiclass",
+  "target_names": [
+    "NO",
+    ">30",
+    "<30"
+  ],
+  "labels": [
+    0,
+    1,
+    2
+  ],
+  "positive_class": null,
+  "class_counts": {
+    "NO": 54864,
+    ">30": 35545,
+    "<30": 11357
+  },
+  "imbalance_ratio": 4.8309,
+  "split_ratios": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  },
+  "seed": 42,
+  "splits": {
+    "train": {
+      "n_rows": 61059,
+      "class_counts": {
+        "NO": 32918,
+        ">30": 21327,
+        "<30": 6814
+      },
+      "class_fractions": {
+        "NO": 0.539118,
+        ">30": 0.349285,
+        "<30": 0.111597
+      }
+    },
+    "val": {
+      "n_rows": 20353,
+      "class_counts": {
+        "NO": 10973,
+        ">30": 7109,
+        "<30": 2271
+      },
+      "class_fractions": {
+        "NO": 0.539134,
+        ">30": 0.349285,
+        "<30": 0.111581
+      }
+    },
+    "test": {
+      "n_rows": 20354,
+      "class_counts": {
+        "NO": 10973,
+        ">30": 7109,
+        "<30": 2272
+      },
+      "class_fractions": {
+        "NO": 0.539108,
+        ">30": 0.349268,
+        "<30": 0.111624
+      }
+    }
+  },
+  "n_features_raw": 47,
+  "n_features_model": 92,
+  "feature_names": [
+    "admission_type_id",
+    "discharge_disposition_id",
+    "admission_source_id",
+    "time_in_hospital",
+    "num_lab_procedures",
+    "num_procedures",
+    "num_medications",
+    "number_outpatient",
+    "number_emergency",
+    "number_inpatient",
+    "number_diagnoses",
+    "race_AfricanAmerican",
+    "race_Caucasian",
+    "race_Hispanic",
+    "race_Other",
+    "race_infrequent_sklearn",
+    "gender_Female",
+    "gender_Male",
+    "gender_infrequent_sklearn",
+    "age_[20-30)",
+    "age_[30-40)",
+    "age_[40-50)",
+    "age_[50-60)",
+    "age_[60-70)",
+    "age_[70-80)",
+    "age_[80-90)",
+    "age_[90-100)",
+    "age_infrequent_sklearn",
+    "payer_code_BC",
+    "payer_code_CM",
+    "payer_code_CP",
+    "payer_code_HM",
+    "payer_code_MC",
+    "payer_code_MD",
+    "payer_code_OG",
+    "payer_code_SP",
+    "payer_code_UN",
+    "payer_code_infrequent_sklearn",
+    "metformin_No",
+    "metformin_Steady",
+    "metformin_Up",
+    "metformin_infrequent_sklearn",
+    "repaglinide_No",
+    "repaglinide_Steady",
+    "repaglinide_infrequent_sklearn",
+    "nateglinide_No",
+    "nateglinide_infrequent_sklearn",
+    "chlorpropamide_No",
+    "chlorpropamide_infrequent_sklearn",
+    "glimepiride_No",
+    "glimepiride_Steady",
+    "glimepiride_infrequent_sklearn",
+    "acetohexamide_No",
+    "glipizide_No",
+    "glipizide_Steady",
+    "glipizide_infrequent_sklearn",
+    "glyburide_No",
+    "glyburide_Steady",
+    "glyburide_infrequent_sklearn",
+    "tolbutamide_No",
+    "tolbutamide_infrequent_sklearn",
+    "pioglitazone_No",
+    "pioglitazone_Steady",
+    "pioglitazone_infrequent_sklearn",
+    "rosiglitazone_No",
+    "rosiglitazone_Steady",
+    "rosiglitazone_infrequent_sklearn",
+    "acarbose_No",
+    "acarbose_infrequent_sklearn",
+    "miglitol_No",
+    "miglitol_infrequent_sklearn",
+    "troglitazone_No",
+    "troglitazone_infrequent_sklearn",
+    "tolazamide_No",
+    "tolazamide_infrequent_sklearn",
+    "examide_No",
+    "citoglipton_No",
+    "insulin_Down",
+    "insulin_No",
+    "insulin_Steady",
+    "insulin_Up",
+    "glyburide-metformin_No",
+    "glyburide-metformin_infrequent_sklearn",
+    "glipizide-metformin_No",
+    "glipizide-metformin_infrequent_sklearn",
+    "glimepiride-pioglitazone_No",
+    "metformin-rosiglitazone_No",
+    "metformin-pioglitazone_No",
+    "change_Ch",
+    "change_No",
+    "diabetesMed_No",
+    "diabetesMed_Yes"
+  ],
+  "id_columns": [
+    "encounter_id",
+    "patient_nbr"
+  ],
+  "dropped_columns": {
+    "weight": "missing_fraction=0.969",
+    "medical_specialty": "missing_fraction=0.491",
+    "diag_1": "high_cardinality=676",
+    "diag_2": "high_cardinality=689",
+    "diag_3": "high_cardinality=725",
+    "max_glu_serum": "missing_fraction=0.948",
+    "A1Cresult": "missing_fraction=0.833"
+  },
+  "preprocessing": {
+    "max_missing_fraction": 0.45,
+    "max_cardinality": 100,
+    "min_frequency": 0.01,
+    "scale": true,
+    "add_missing_indicators": true
+  },
+  "row_id_column": "row_id",
+  "target_column": "__target__",
+  "created_at": "2026-11-25T12:38:41+00:00",
+  "prepare_seconds": 3.825
+}

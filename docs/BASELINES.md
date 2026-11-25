@@ -17,7 +17,7 @@ and the CTDE PPO pipeline — is built on and compared against.
 | Days 1–2: gather healthcare / fraud / network benchmarks, stratified train/val/test | `scripts/fetch_data.py` (download + validation), `src/baselines/datasets.py`, `src/baselines/splits.py` → curated parquet splits + `schema.json` per dataset |
 | Day 3: preprocessing scripts + static LightGBM/XGBoost baselines, uncoupled preprocessing | `src/baselines/preprocessing.py`, `src/baselines/models.py`, `src/baselines/pipeline.py`, `python -m baselines run` |
 | Day 4: test, debug, verify Macro-F1 / G-Mean / PR-AUC | `tests/` (27 tests), `python -m baselines verify` (97 checks, PASS), results in `results/` |
-| Protocol: feature branch, documented module, verified output logs/plots | branch `feature/baselines`, this document, `logs/`, `results/baseline_metrics.png` |
+| Protocol: feature branch, documented module, verified output logs/plots | branch `feature/baselines`, this document, `results/verify_report.txt` (full gate output), `results/baseline_metrics.png` |
 
 ---
 
@@ -162,7 +162,7 @@ Everything lives under `data/processed/<dataset>/`:
 | Path | Contents |
 |---|---|
 | `train.parquet`, `val.parquet`, `test.parquet` | columns `row_id`, all raw features, `__target__` (integer label) |
-| `schema.json` | `target_names`, `labels` (codes, aligned by position), `task`, `positive_class`, `class_counts`, `imbalance_ratio`, per-split counts/fractions, `n_features_raw`, `n_features_model`, `feature_names` (exact model column order), `dropped_columns`, `seed`, `source`, `provenance` |
+| `schema.json` | `target_names`, `labels` (codes, aligned by position), `task`, `positive_class`, `class_counts`, `imbalance_ratio`, per-split counts/fractions, `n_features_raw`, `n_features_model`, `feature_names` (exact model column order), `dropped_columns`, `seed`, `source`, `provenance`. **This file is tracked in git** (~10 KB in total) so downstream components can read the frozen contract without downloading the raw data; everything else under `data/processed/` is regenerable and ignored. |
 | `arrays.npz` | `train_X/val_X/test_X` (float32 model matrices, already preprocessed) and `train_y/val_y/test_y` — ready to feed policy networks |
 | `preprocessor.joblib` | the fitted `TabularPreprocessor`; `transform(DataFrame) -> np.ndarray`, `feature_names_out_` |
 
@@ -240,7 +240,10 @@ Runtime on a laptop CPU: curation ≈ 8 s, all six baselines ≈ 60 s
   XGBoost 2.x rejected `early_stopping_rounds` in `fit()`.
 
 Reproduce the gate at any time with `python -m baselines verify`; it exits
-non-zero on failure so it can be wired into CI before the Dec 5 review.
+non-zero on failure so it can be wired into CI before the Dec 5 review. The
+full output of the last gate run is committed as `results/verify_report.txt`,
+so the verified log travels with the repository (the verbose run logs in
+`logs/` stay local and are git-ignored).
 
 ---
 
