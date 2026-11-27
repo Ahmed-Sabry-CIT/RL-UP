@@ -2,12 +2,11 @@
 
 An explainability-guided multi-agent RL framework (CTDE) for imbalanced tabular
 learning. Six team members build one component each; this repository holds the
-**dataset curation and static baseline pipelines** component
-(`feature/baselines`).
+**dataset curation and static baseline pipelines** component (merged in `main`).
 
 | Component | Branch | Owner |
 |---|---|---|
-| Dataset curation + static baselines | `feature/baselines` | Saeed Nadeem Saeed Shaarawy (931230139) |
+| Dataset curation + static baselines | `main` (merged) | Saeed Nadeem Saeed Shaarawy (931230139) |
 | Environment & MDP | `feature/env-mdp` | Ahmed Sabry Hamza Heikal |
 | TreeSHAP diagnostics | `feature/xai-shap` | Ziad Khaled Mahran Asran Ahmed |
 | Agent 1 (feature selection) | `feature/agent1-fs` | Shehab Hossam El-Din Helmy Mohamed |
