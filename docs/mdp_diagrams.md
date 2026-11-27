@@ -67,7 +67,8 @@ sequenceDiagram
     C-->>E: proba → Macro-F1, G-Mean, PR-AUC
     E->>X: importance(clf, X_sub, y, mask)
     X-->>E: global importance vector
-    E->>E: _distortion → D_syn; compute R_t
+    E->>E: _distortion → D_syn
+    E->>E: compute R_t
     E-->>FS: obs_FS, R_t, term/trunc, info
     E-->>DA: obs_DA, R_t, term/trunc, info
 ```
