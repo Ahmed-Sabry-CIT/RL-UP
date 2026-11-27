@@ -5,6 +5,7 @@ Usage: python scripts/calibrate_reward.py [--episodes 12]
 """
 import argparse
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -19,6 +20,9 @@ def collect(env, episodes):
     rows = []
     for ep in range(episodes):
         env.reset(seed=ep)
+        # seed the action spaces as well, otherwise space.sample() is not reproducible
+        for agent in env.agents:
+            env.action_space(agent).seed(ep)
         while env.agents:
             a = {x: env.action_space(x).sample() for x in env.agents}
             _, _, _, _, info = env.step(a)
@@ -32,6 +36,11 @@ if __name__ == "__main__":
     args = ap.parse_args()
     env = JointFSDAEnv(*make_demo_data(), horizon=8, patience=99)
     R = collect(env, args.episodes)
+    print("Reward-term calibration - feature/env-mdp (JointFSDAEnv)")
+    print(f"Command: python scripts/calibrate_reward.py --episodes {args.episodes}")
+    print("Env: horizon=8, patience=99, demo data make_demo_data() (n=1500, seed=0)")
+    print(f"Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}")
+    print()
     print(f"{'term':10s} {'mean':>8s} {'std':>8s} {'min':>8s} {'max':>8s}")
     for j, t in enumerate(TERMS):
         print(f"{t:10s} {R[:, j].mean():8.3f} {R[:, j].std():8.3f} {R[:, j].min():8.3f} {R[:, j].max():8.3f}")
