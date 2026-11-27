@@ -1,0 +1,14 @@
+Reward-term calibration — feature/env-mdp (JointFSDAEnv)
+Command: python scripts/calibrate_reward.py --episodes 6
+Env: horizon=8, patience=99, demo data make_demo_data() (n=1500, seed=0)
+Generated: 2026-11-27T15:26:43Z
+
+term           mean      std      min      max
+d_f1         -0.007    0.038   -0.083    0.077
+gmean         0.321    0.082    0.163    0.515
+feat_frac     0.482    0.115    0.300    0.800
+d_syn         0.072    0.063    0.000    0.236
+
+Suggested weights equalising each term's std contribution (alpha=1):
+  alpha=1.00 beta=0.47 gamma=0.33 delta=0.61
+Note: beta*GMean is an absolute level (not a delta); keep beta modest so it does not swamp the incremental dF1 signal.

@@ -22,6 +22,10 @@ network intrusion data, plus static LightGBM/XGBoost baselines scored on
 measured against. See [docs/BASELINES.md](docs/BASELINES.md) for the full
 interface contract and results.
 
+The merged `feature/env-mdp` component (`src/joint_fsda_env/`) turns those splits
+into the PettingZoo `ParallelEnv` the agents act in; its frozen space/reward
+contract is [docs/INTERFACE_CONTRACT.md](docs/INTERFACE_CONTRACT.md).
+
 ## Quick start
 
 ```bash
@@ -51,7 +55,15 @@ src/baselines/
   metrics.py                  Macro-F1, G-Mean, PR-AUC, threshold tuning, bootstrap CI
   pipeline.py                 prepare / run / report / verify
   cli.py                      `python -m baselines`
+src/joint_fsda_env/
+  env.py                      JointFSDAEnv: spaces, step/reset, composite reward (feature/env-mdp)
+  augment.py                  SMOTE / ADASYN / noise augmenters (pluggable hook)
+  compat.py                   real Gymnasium + PettingZoo, or offline shims
+  data.py                     deterministic synthetic demo splits for tests
 scripts/fetch_data.py         dataset download + validation
-tests/                        27 unit and end-to-end tests
-docs/BASELINES.md             documentation, results, interface contract
+scripts/calibrate_reward.py   rollout-based reward-weight calibration
+tests/                        39 unit and end-to-end tests (27 baselines + 12 environment)
+docs/BASELINES.md             documentation, results, data interface contract
+docs/INTERFACE_CONTRACT.md    frozen MDP / space contract (jointly with the MARL lead)
+docs/mdp_diagrams.md          UML, sequence, reward and episode-lifecycle diagrams
 ```
