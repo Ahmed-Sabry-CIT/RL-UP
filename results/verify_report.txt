@@ -1,0 +1,99 @@
+PASS  healthcare: artefact schema.json exists
+PASS  healthcare: artefact train.parquet exists
+PASS  healthcare: artefact val.parquet exists
+PASS  healthcare: artefact test.parquet exists
+PASS  healthcare: data source recorded (real)
+PASS  healthcare: splits are disjoint
+PASS  healthcare/train: labels within [0, 2]
+PASS  healthcare/train: all 3 classes present
+PASS  healthcare/val: labels within [0, 2]
+PASS  healthcare/val: all 3 classes present
+PASS  healthcare/test: labels within [0, 2]
+PASS  healthcare/test: all 3 classes present
+PASS  healthcare/train: share 0.600 within 0.02 of 0.6
+PASS  healthcare/val: share 0.200 within 0.02 of 0.2
+PASS  healthcare/test: share 0.200 within 0.02 of 0.2
+PASS  healthcare: feature-name count matches n_features_model
+PASS  fraud: artefact schema.json exists
+PASS  fraud: artefact train.parquet exists
+PASS  fraud: artefact val.parquet exists
+PASS  fraud: artefact test.parquet exists
+PASS  fraud: data source recorded (real)
+PASS  fraud: splits are disjoint
+PASS  fraud/train: labels within [0, 1]
+PASS  fraud/train: all 2 classes present
+PASS  fraud/val: labels within [0, 1]
+PASS  fraud/val: all 2 classes present
+PASS  fraud/test: labels within [0, 1]
+PASS  fraud/test: all 2 classes present
+PASS  fraud/train: share 0.600 within 0.02 of 0.6
+PASS  fraud/val: share 0.200 within 0.02 of 0.2
+PASS  fraud/test: share 0.200 within 0.02 of 0.2
+PASS  fraud: feature-name count matches n_features_model
+PASS  network: artefact schema.json exists
+PASS  network: artefact train.parquet exists
+PASS  network: artefact val.parquet exists
+PASS  network: artefact test.parquet exists
+PASS  network: data source recorded (real)
+PASS  network: splits are disjoint
+PASS  network/train: labels within [0, 4]
+PASS  network/train: all 5 classes present
+PASS  network/val: labels within [0, 4]
+PASS  network/val: all 5 classes present
+PASS  network/test: labels within [0, 4]
+PASS  network/test: all 5 classes present
+PASS  network/train: share 0.600 within 0.02 of 0.6
+PASS  network/val: share 0.200 within 0.02 of 0.2
+PASS  network/test: share 0.200 within 0.02 of 0.2
+PASS  network: feature-name count matches n_features_model
+PASS  results: at least one baseline result exists
+PASS  results: lightgbm baseline present
+PASS  results: xgboost baseline present
+PASS  fraud/lightgbm: n_samples matches test rows
+PASS  fraud/lightgbm: macro_f1 in [0, 1] (0.6176)
+PASS  fraud/lightgbm: g_mean in [0, 1] (0.9483)
+PASS  fraud/lightgbm: pr_auc in [0, 1] (0.9390)
+PASS  fraud/lightgbm: accuracy in [0, 1] (0.9901)
+PASS  fraud/lightgbm: confusion matrix sums to n_samples
+PASS  fraud/lightgbm: confusion matrix is square over target classes
+PASS  fraud/lightgbm: threshold in [0, 1]
+PASS  fraud/xgboost: n_samples matches test rows
+PASS  fraud/xgboost: macro_f1 in [0, 1] (0.6216)
+PASS  fraud/xgboost: g_mean in [0, 1] (0.9485)
+PASS  fraud/xgboost: pr_auc in [0, 1] (0.9410)
+PASS  fraud/xgboost: accuracy in [0, 1] (0.9905)
+PASS  fraud/xgboost: confusion matrix sums to n_samples
+PASS  fraud/xgboost: confusion matrix is square over target classes
+PASS  fraud/xgboost: threshold in [0, 1]
+PASS  healthcare/lightgbm: n_samples matches test rows
+PASS  healthcare/lightgbm: macro_f1 in [0, 1] (0.4426)
+PASS  healthcare/lightgbm: g_mean in [0, 1] (0.4167)
+PASS  healthcare/lightgbm: pr_auc in [0, 1] (0.4562)
+PASS  healthcare/lightgbm: accuracy in [0, 1] (0.5267)
+PASS  healthcare/lightgbm: confusion matrix sums to n_samples
+PASS  healthcare/lightgbm: confusion matrix is square over target classes
+PASS  healthcare/xgboost: n_samples matches test rows
+PASS  healthcare/xgboost: macro_f1 in [0, 1] (0.4454)
+PASS  healthcare/xgboost: g_mean in [0, 1] (0.4477)
+PASS  healthcare/xgboost: pr_auc in [0, 1] (0.4617)
+PASS  healthcare/xgboost: accuracy in [0, 1] (0.5127)
+PASS  healthcare/xgboost: confusion matrix sums to n_samples
+PASS  healthcare/xgboost: confusion matrix is square over target classes
+PASS  network/lightgbm: n_samples matches test rows
+PASS  network/lightgbm: macro_f1 in [0, 1] (0.9444)
+PASS  network/lightgbm: g_mean in [0, 1] (0.9642)
+PASS  network/lightgbm: pr_auc in [0, 1] (0.9600)
+PASS  network/lightgbm: accuracy in [0, 1] (0.9961)
+PASS  network/lightgbm: confusion matrix sums to n_samples
+PASS  network/lightgbm: confusion matrix is square over target classes
+PASS  network/xgboost: n_samples matches test rows
+PASS  network/xgboost: macro_f1 in [0, 1] (0.9430)
+PASS  network/xgboost: g_mean in [0, 1] (0.9637)
+PASS  network/xgboost: pr_auc in [0, 1] (0.9642)
+PASS  network/xgboost: accuracy in [0, 1] (0.9958)
+PASS  network/xgboost: confusion matrix sums to n_samples
+PASS  network/xgboost: confusion matrix is square over target classes
+PASS  report: summary CSV exists
+PASS  report: summary Markdown exists
+
+VERIFY: PASS

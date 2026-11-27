@@ -1,0 +1,303 @@
+{
+  "dataset": "network",
+  "model": "lightgbm",
+  "data_source": "real",
+  "provenance": "NSL-KDD (KDDTrain+ and KDDTest+, pooled) -- attack-type taxonomy",
+  "task": "multiclass",
+  "target_names": [
+    "Normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "positive_class": null,
+  "imbalance_strategy": "class_weight",
+  "seed": 42,
+  "n_features_raw": 41,
+  "n_features_model": 59,
+  "n_train_rows": 89109,
+  "n_val_rows": 29704,
+  "n_test_rows": 29704,
+  "threshold": null,
+  "params": {
+    "n_estimators": 1000,
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "min_child_samples": 20,
+    "subsample": 0.9,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0
+  },
+  "metrics": {
+    "macro_f1": 0.9443684310926223,
+    "g_mean": 0.9641512896896093,
+    "pr_auc": 0.9600092823848121,
+    "accuracy": 0.9960948020468624,
+    "n_samples": 29704,
+    "n_classes": 5,
+    "per_class_recall": {
+      "Normal": 0.9959120109013042,
+      "DoS": 0.9990634950365237,
+      "Probe": 0.9968028419182948,
+      "R2L": 0.9600515463917526,
+      "U2R": 0.875
+    },
+    "per_class_f1": {
+      "Normal": 0.9965586650217518,
+      "DoS": 0.9991570665917393,
+      "Probe": 0.9962719687555477,
+      "R2L": 0.952076677316294,
+      "U2R": 0.7777777777777778
+    },
+    "per_class_support": {
+      "Normal": 15411,
+      "DoS": 10678,
+      "Probe": 2815,
+      "R2L": 776,
+      "U2R": 24
+    },
+    "pr_auc_per_class": {
+      "0": 0.9999499831667419,
+      "1": 0.9999968439624658,
+      "2": 0.9998926999565128,
+      "3": 0.9890510188145833,
+      "4": 0.8111558660237561
+    },
+    "confusion_matrix": [
+      [
+        15348,
+        7,
+        12,
+        42,
+        2
+      ],
+      [
+        10,
+        10668,
+        0,
+        0,
+        0
+      ],
+      [
+        6,
+        1,
+        2806,
+        2,
+        0
+      ],
+      [
+        24,
+        0,
+        0,
+        745,
+        7
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        21
+      ]
+    ],
+    "threshold": null,
+    "ci": {
+      "macro_f1": [
+        0.9206410216761074,
+        0.9685686977512242
+      ],
+      "g_mean": [
+        0.9334738269091772,
+        0.988400017384213
+      ],
+      "pr_auc": [
+        0.9317769105815314,
+        0.9860934262396013
+      ]
+    }
+  },
+  "validation_metrics": {
+    "macro_f1": 0.9396487246525614,
+    "g_mean": 0.9525869866303438,
+    "pr_auc": 0.9708619123771424,
+    "accuracy": 0.995152168058174,
+    "n_samples": 29704,
+    "n_classes": 5,
+    "per_class_recall": {
+      "Normal": 0.9941600155732918,
+      "DoS": 0.9997190221972464,
+      "Probe": 0.9971590909090909,
+      "R2L": 0.9497422680412371,
+      "U2R": 0.8333333333333334
+    },
+    "per_class_f1": {
+      "Normal": 0.9955165692007797,
+      "DoS": 0.99925107657742,
+      "Probe": 0.9953917050691244,
+      "R2L": 0.9388535031847134,
+      "U2R": 0.7692307692307693
+    },
+    "per_class_support": {
+      "Normal": 15411,
+      "DoS": 10677,
+      "Probe": 2816,
+      "R2L": 776,
+      "U2R": 24
+    },
+    "pr_auc_per_class": {
+      "0": 0.9999359914024022,
+      "1": 0.9999967917788315,
+      "2": 0.9998756511194445,
+      "3": 0.9903303479145255,
+      "4": 0.8641707796705083
+    },
+    "confusion_matrix": [
+      [
+        15321,
+        11,
+        17,
+        57,
+        5
+      ],
+      [
+        3,
+        10674,
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        0,
+        2808,
+        0,
+        0
+      ],
+      [
+        33,
+        2,
+        1,
+        737,
+        3
+      ],
+      [
+        4,
+        0,
+        0,
+        0,
+        20
+      ]
+    ],
+    "threshold": null,
+    "ci": {}
+  },
+  "top_features": [
+    {
+      "feature": "src_bytes",
+      "importance": 6002.0,
+      "importance_share": 0.11404575511134757
+    },
+    {
+      "feature": "dst_host_srv_count",
+      "importance": 5469.0,
+      "importance_share": 0.10391806642851714
+    },
+    {
+      "feature": "dst_bytes",
+      "importance": 3892.0,
+      "importance_share": 0.0739530288059588
+    },
+    {
+      "feature": "dst_host_count",
+      "importance": 3484.0,
+      "importance_share": 0.06620050163411112
+    },
+    {
+      "feature": "dst_host_diff_srv_rate",
+      "importance": 3213.0,
+      "importance_share": 0.06105115147830052
+    },
+    {
+      "feature": "dst_host_same_src_port_rate",
+      "importance": 3111.0,
+      "importance_share": 0.0591130196853386
+    },
+    {
+      "feature": "dst_host_same_srv_rate",
+      "importance": 2904.0,
+      "importance_share": 0.05517975222315118
+    },
+    {
+      "feature": "dst_host_rerror_rate",
+      "importance": 2671.0,
+      "importance_share": 0.050752451166679334
+    },
+    {
+      "feature": "duration",
+      "importance": 2590.0,
+      "importance_share": 0.04921334650756251
+    },
+    {
+      "feature": "count",
+      "importance": 2373.0,
+      "importance_share": 0.04509006612449647
+    },
+    {
+      "feature": "srv_count",
+      "importance": 1685.0,
+      "importance_share": 0.032017177168047424
+    },
+    {
+      "feature": "dst_host_serror_rate",
+      "importance": 1519.0,
+      "importance_share": 0.02886296268146234
+    },
+    {
+      "feature": "dst_host_srv_diff_host_rate",
+      "importance": 1368.0,
+      "importance_share": 0.025993767576195183
+    },
+    {
+      "feature": "diff_srv_rate",
+      "importance": 1213.0,
+      "importance_share": 0.023048567302576574
+    },
+    {
+      "feature": "same_srv_rate",
+      "importance": 792.0,
+      "importance_share": 0.015049023333586684
+    },
+    {
+      "feature": "dst_host_srv_rerror_rate",
+      "importance": 659.0,
+      "importance_share": 0.012521851485901042
+    },
+    {
+      "feature": "dst_host_srv_serror_rate",
+      "importance": 645.0,
+      "importance_share": 0.012255833396670973
+    },
+    {
+      "feature": "hot",
+      "importance": 589.0,
+      "importance_share": 0.011191761039750702
+    },
+    {
+      "feature": "service_other",
+      "importance": 501.0,
+      "importance_share": 0.009519647336018849
+    },
+    {
+      "feature": "service_ftp_data",
+      "importance": 477.0,
+      "importance_share": 0.009063616325910162
+    }
+  ],
+  "timings_seconds": {
+    "fit": 4.914,
+    "total": 12.505
+  },
+  "run_at": "2026-11-25T12:40:05+00:00"
+}

@@ -1,53 +1,57 @@
-# Explainability-Guided Multi-Agent Reinforcement Learning for Joint Feature Selection and Adaptive Data Augmentation
+# RL Project — Joint Feature Selection & Adaptive Data Augmentation
 
-An integrated, cooperative Multi-Agent Reinforcement Learning (MARL) framework that simultaneously identifies informative feature subsets and synthesizes targeted minority-class samples to maximize predictive performance and model parsimony on high-dimensional, imbalanced tabular datasets.
+An explainability-guided multi-agent RL framework (CTDE) for imbalanced tabular
+learning. Six team members build one component each; this repository holds the
+**dataset curation and static baseline pipelines** component
+(`feature/baselines`).
 
----
+| Component | Branch | Owner |
+|---|---|---|
+| Dataset curation + static baselines | `feature/baselines` | Saeed Nadeem Saeed Shaarawy (931230139) |
+| Environment & MDP | `feature/env-mdp` | Ahmed Sabry Hamza Heikal |
+| TreeSHAP diagnostics | `feature/xai-shap` | Ziad Khaled Mahran Asran Ahmed |
+| Agent 1 (feature selection) | `feature/agent1-fs` | Shehab Hossam El-Din Helmy Mohamed |
+| Agent 2 (data augmentation) | `feature/agent2-da` | Joseph Wafik Edward Labib |
+| CTDE PPO integration | `feature/marl-ppo` | Ziad Mostafa Aly Kamel |
 
-## Overview
+## What this component delivers
 
-In real-world domains such as healthcare, financial fraud detection, and network intrusion detection, classifiers suffer from two coupled bottlenecks: **high feature dimensionality** and **severe class imbalance**. Conventional pipelines treat feature selection and data augmentation as isolated, static steps—ignoring how pruning features shifts sample neighborhoods and how oversampling alters feature correlations.
+Curated, reproducible, stratified splits for healthcare, financial fraud and
+network intrusion data, plus static LightGBM/XGBoost baselines scored on
+**Macro-F1**, **G-Mean** and **PR-AUC** — the numbers every downstream agent is
+measured against. See [docs/BASELINES.md](docs/BASELINES.md) for the full
+interface contract and results.
 
-This repository models joint preprocessing as a unified **Markov Decision Process (MDP)** solved via **Centralized Training with Decentralized Execution (CTDE)** using Multi-Agent Proximal Policy Optimization (MAPPO), guided internally and audited externally by **TreeSHAP** explainability.
+## Quick start
 
----
+```bash
+python -m venv .venv
+.venv/Scripts/activate          # Windows;  source .venv/bin/activate on Linux/macOS
+pip install -r requirements.txt
+pip install -e .                             # makes `python -m baselines` importable
 
-## Key Architecture & Features
+python scripts/fetch_data.py                 # download the three benchmarks (~170 MB)
+python -m baselines prepare                  # curate splits + freeze the preprocessor
+python -m baselines run                      # 3 datasets x {LightGBM, XGBoost}
+python -m baselines verify                   # QA gate: PASS/FAIL over every artefact
+pytest -q                                    # unit + end-to-end tests
+```
 
-* **Cooperative Two-Agent MARL System (CTDE):**
-  * **Feature Selection Agent ($\pi_{FS}$):** Observes binary feature masks, correlation redundancy matrices, and global SHAP importance vectors to prune noisy/redundant attributes into a denoised lower-dimensional subspace.
-  * **Data Augmentation Agent ($\pi_{DA}$):** Observes the projected subspace, class error rates, local sample density, and high-uncertainty minority pockets to adaptively select synthesis methods (SMOTE, ADASYN, noise injection) and sampling ratios.
-* **Explainability-Guided Policy & Auditing (TreeSHAP):**
-  * Supplies global feature importance signals to accelerate $\pi_{FS}$ convergence and local misclassified-sample attributions to target vulnerable decision boundaries for $\pi_{DA}$.
-  * Generates pre- and post-optimization SHAP summary and dependence diagnostics to verify decision-boundary improvements.
-* **Composite Parsimony-Performance Reward:**
-  * Evaluates fast downstream gradient-boosted classifiers (LightGBM / XGBoost) across iterative steps using a composite reward balancing minority classification gains ($\Delta\text{F1}_{\text{macro}}$, $\text{G-Mean}$) against active feature complexity ($\vert{}F_{\text{selected}}\vert{}/\vert{}F_{\text{total}}\vert{}$) and synthetic distribution distortion ($D_{\text{syn}}$).
+Everything lands in `data/processed/<dataset>/` and `results/`.
 
----
+## Layout
 
-## Tech Stack
-
-* **RL & Multi-Agent Environments:** `PyTorch`, `PettingZoo`, `Gymnasium`
-* **Downstream Classifiers & Oversampling:** `LightGBM`, `XGBoost`, `imbalanced-learn`, `scikit-learn`
-* **Explainable AI (XAI):** `SHAP` (TreeSHAP)
-* **Data Processing & Visualization:** `NumPy`, `Pandas`, `Matplotlib`, `Seaborn`
-
----
-
-## Target Benchmarks & Expected Outcomes
-
-* **Domains:** Healthcare diagnostics, financial fraud detection, and network intrusion detection.
-* **Evaluation Metrics:** $\text{Macro-F1}$, $\text{G-Mean}$, $\text{PR-AUC}$, and active feature reduction ratio (targeting a **30%–60% reduction** in active features with minimal synthetic overhead).
-
----
-
-## Repository Structure
-
-```text
-├── data/               # Raw and stratified train/val/test dataset splits
-├── baselines/          # Static feature selection & oversampling baseline pipelines
-├── envs/               # Custom Gymnasium / PettingZoo MDP environment & reward logic
-├── agents/             # Policy networks for Feature Selection (π_FS) & Data Augmentation (π_DA)
-├── xai/                # TreeSHAP global/local attribution extractors & diagnostic plots
-├── marl/               # PyTorch CTDE Multi-Agent PPO training & evaluation loops
-└── notebooks/          # Exploratory analysis, ablation studies & result visualizations
+```
+configs/baselines.yaml        seeds, split ratios, preprocessing, model params
+src/baselines/
+  datasets.py                 loaders + validation for the three benchmarks
+  splits.py                   stratified, reproducible train/val/test
+  preprocessing.py            traditional uncoupled transform (fit on train only)
+  models.py                   LightGBM / XGBoost builders, class weights, SMOTE
+  metrics.py                  Macro-F1, G-Mean, PR-AUC, threshold tuning, bootstrap CI
+  pipeline.py                 prepare / run / report / verify
+  cli.py                      `python -m baselines`
+scripts/fetch_data.py         dataset download + validation
+tests/                        27 unit and end-to-end tests
+docs/BASELINES.md             documentation, results, interface contract
+```

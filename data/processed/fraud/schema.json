@@ -1,0 +1,108 @@
+{
+  "dataset": "fraud",
+  "source": "real",
+  "provenance": "ULB Machine Learning Group: Credit Card Fraud Detection (OpenML 1597)",
+  "task": "binary",
+  "target_names": [
+    "normal",
+    "fraud"
+  ],
+  "labels": [
+    0,
+    1
+  ],
+  "positive_class": "fraud",
+  "class_counts": {
+    "normal": 284315,
+    "fraud": 492
+  },
+  "imbalance_ratio": 577.876,
+  "split_ratios": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  },
+  "seed": 42,
+  "splits": {
+    "train": {
+      "n_rows": 170883,
+      "class_counts": {
+        "normal": 170588,
+        "fraud": 295
+      },
+      "class_fractions": {
+        "normal": 0.998274,
+        "fraud": 0.001726
+      }
+    },
+    "val": {
+      "n_rows": 56962,
+      "class_counts": {
+        "normal": 56863,
+        "fraud": 99
+      },
+      "class_fractions": {
+        "normal": 0.998262,
+        "fraud": 0.001738
+      }
+    },
+    "test": {
+      "n_rows": 56962,
+      "class_counts": {
+        "normal": 56864,
+        "fraud": 98
+      },
+      "class_fractions": {
+        "normal": 0.99828,
+        "fraud": 0.00172
+      }
+    }
+  },
+  "n_features_raw": 30,
+  "n_features_model": 30,
+  "feature_names": [
+    "Time",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount"
+  ],
+  "id_columns": [],
+  "dropped_columns": {},
+  "preprocessing": {
+    "max_missing_fraction": 0.45,
+    "max_cardinality": 100,
+    "min_frequency": 0.01,
+    "scale": true,
+    "add_missing_indicators": true
+  },
+  "row_id_column": "row_id",
+  "target_column": "__target__",
+  "created_at": "2026-11-25T12:38:46+00:00",
+  "prepare_seconds": 5.014
+}

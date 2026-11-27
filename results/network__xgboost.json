@@ -1,0 +1,302 @@
+{
+  "dataset": "network",
+  "model": "xgboost",
+  "data_source": "real",
+  "provenance": "NSL-KDD (KDDTrain+ and KDDTest+, pooled) -- attack-type taxonomy",
+  "task": "multiclass",
+  "target_names": [
+    "Normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "positive_class": null,
+  "imbalance_strategy": "class_weight",
+  "seed": 42,
+  "n_features_raw": 41,
+  "n_features_model": 59,
+  "n_train_rows": 89109,
+  "n_val_rows": 29704,
+  "n_test_rows": 29704,
+  "threshold": null,
+  "params": {
+    "n_estimators": 1000,
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "min_child_weight": 1.0,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0
+  },
+  "metrics": {
+    "macro_f1": 0.9430282814972438,
+    "g_mean": 0.9637341087332207,
+    "pr_auc": 0.9641960229464537,
+    "accuracy": 0.9957581470509023,
+    "n_samples": 29704,
+    "n_classes": 5,
+    "per_class_recall": {
+      "Normal": 0.9952631237427811,
+      "DoS": 0.999250796029219,
+      "Probe": 0.9964476021314387,
+      "R2L": 0.9587628865979382,
+      "U2R": 0.875
+    },
+    "per_class_f1": {
+      "Normal": 0.9962327877370746,
+      "DoS": 0.999250796029219,
+      "Probe": 0.9959169181608379,
+      "R2L": 0.9459631277813096,
+      "U2R": 0.7777777777777778
+    },
+    "per_class_support": {
+      "Normal": 15411,
+      "DoS": 10678,
+      "Probe": 2815,
+      "R2L": 776,
+      "U2R": 24
+    },
+    "pr_auc_per_class": {
+      "0": 0.9999561163519007,
+      "1": 0.9999971834500935,
+      "2": 0.9999104491998718,
+      "3": 0.9887358729296298,
+      "4": 0.8323804928007725
+    },
+    "confusion_matrix": [
+      [
+        15338,
+        7,
+        13,
+        51,
+        2
+      ],
+      [
+        8,
+        10670,
+        0,
+        0,
+        0
+      ],
+      [
+        7,
+        1,
+        2805,
+        2,
+        0
+      ],
+      [
+        25,
+        0,
+        0,
+        744,
+        7
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        21
+      ]
+    ],
+    "threshold": null,
+    "ci": {
+      "macro_f1": [
+        0.9195080290984514,
+        0.9669450097387046
+      ],
+      "g_mean": [
+        0.932856706576035,
+        0.9875582895570659
+      ],
+      "pr_auc": [
+        0.9412048749146644,
+        0.9868684319607365
+      ]
+    }
+  },
+  "validation_metrics": {
+    "macro_f1": 0.9498781972818705,
+    "g_mean": 0.9543858510911198,
+    "pr_auc": 0.9675787015277771,
+    "accuracy": 0.9954214920549421,
+    "n_samples": 29704,
+    "n_classes": 5,
+    "per_class_recall": {
+      "Normal": 0.994419570436701,
+      "DoS": 0.9994380443944928,
+      "Probe": 0.9971590909090909,
+      "R2L": 0.9587628865979382,
+      "U2R": 0.8333333333333334
+    },
+    "per_class_f1": {
+      "Normal": 0.9958088306962539,
+      "DoS": 0.9992508661859725,
+      "Probe": 0.9950389794472005,
+      "R2L": 0.9429657794676806,
+      "U2R": 0.8163265306122449
+    },
+    "per_class_support": {
+      "Normal": 15411,
+      "DoS": 10677,
+      "Probe": 2816,
+      "R2L": 776,
+      "U2R": 24
+    },
+    "pr_auc_per_class": {
+      "0": 0.9999374302582217,
+      "1": 0.9999961631669666,
+      "2": 0.9998446708966109,
+      "3": 0.9913895675642063,
+      "4": 0.8467256757528804
+    },
+    "confusion_matrix": [
+      [
+        15325,
+        10,
+        18,
+        56,
+        2
+      ],
+      [
+        5,
+        10671,
+        1,
+        0,
+        0
+      ],
+      [
+        7,
+        0,
+        2808,
+        1,
+        0
+      ],
+      [
+        28,
+        0,
+        1,
+        744,
+        3
+      ],
+      [
+        3,
+        0,
+        0,
+        1,
+        20
+      ]
+    ],
+    "threshold": null,
+    "ci": {}
+  },
+  "top_features": [
+    {
+      "feature": "flag_S0",
+      "importance": 0.16405069828033447,
+      "importance_share": 0.1640506910994812
+    },
+    {
+      "feature": "service_http",
+      "importance": 0.14758682250976562,
+      "importance_share": 0.14758681604957175
+    },
+    {
+      "feature": "is_guest_login",
+      "importance": 0.07587068527936935,
+      "importance_share": 0.07587068195834565
+    },
+    {
+      "feature": "service_domain_u",
+      "importance": 0.07077821344137192,
+      "importance_share": 0.0707782103432567
+    },
+    {
+      "feature": "root_shell",
+      "importance": 0.044176049530506134,
+      "importance_share": 0.044176047596825065
+    },
+    {
+      "feature": "service_smtp",
+      "importance": 0.04379051551222801,
+      "importance_share": 0.0437905135954226
+    },
+    {
+      "feature": "protocol_type_icmp",
+      "importance": 0.038197699934244156,
+      "importance_share": 0.03819769826224836
+    },
+    {
+      "feature": "count",
+      "importance": 0.031839191913604736,
+      "importance_share": 0.031839190519934564
+    },
+    {
+      "feature": "service_ftp_data",
+      "importance": 0.029157748445868492,
+      "importance_share": 0.02915774716957089
+    },
+    {
+      "feature": "service_eco_i",
+      "importance": 0.02861442044377327,
+      "importance_share": 0.028614419191258306
+    },
+    {
+      "feature": "is_host_login",
+      "importance": 0.02171480841934681,
+      "importance_share": 0.02171480746884276
+    },
+    {
+      "feature": "num_file_creations",
+      "importance": 0.01791653037071228,
+      "importance_share": 0.017916529586467063
+    },
+    {
+      "feature": "num_compromised",
+      "importance": 0.017116941511631012,
+      "importance_share": 0.017116940762385523
+    },
+    {
+      "feature": "service_ecr_i",
+      "importance": 0.016889061778783798,
+      "importance_share": 0.016889061039513098
+    },
+    {
+      "feature": "dst_bytes",
+      "importance": 0.01678466610610485,
+      "importance_share": 0.016784665371403776
+    },
+    {
+      "feature": "service_ftp",
+      "importance": 0.015406698919832706,
+      "importance_share": 0.015406698245448231
+    },
+    {
+      "feature": "src_bytes",
+      "importance": 0.014935040846467018,
+      "importance_share": 0.014935040192728033
+    },
+    {
+      "feature": "protocol_type_udp",
+      "importance": 0.012841454707086086,
+      "importance_share": 0.012841454144987888
+    },
+    {
+      "feature": "srv_diff_host_rate",
+      "importance": 0.012249785475432873,
+      "importance_share": 0.012249784939233314
+    },
+    {
+      "feature": "diff_srv_rate",
+      "importance": 0.011937160044908524,
+      "importance_share": 0.011937159522393255
+    }
+  ],
+  "timings_seconds": {
+    "fit": 15.874,
+    "total": 23.126
+  },
+  "run_at": "2026-11-25T12:40:28+00:00"
+}
